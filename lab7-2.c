@@ -40,6 +40,7 @@ main(){
 				e++;
 			}
 			temp++;
+			temp1=0;
 		}
 	}
 	for(temp=0;a+b>temp;temp++){
