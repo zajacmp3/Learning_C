@@ -1,3 +1,5 @@
+//Mateusz Zajac
+//INF UG 2012
 #include<stdio.h>
 main(){
 
