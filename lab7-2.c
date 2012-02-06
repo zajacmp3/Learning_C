@@ -19,29 +19,35 @@ main(){
 	temp=0;
 	printf("temp=%i   temp1=%i\n",temp,temp1);
 	while(b>c){
-		printf("Kraze w petli\n");
-		if(temptab[temp]>=tabela[temp1]){
-			temp1++;
-			printf("temp1++\n");
-		}
-		else if(temptab[temp]<tabela[temp1]){
-			printf("1\n");
-			c++;								/*Zwiekszamy ilosc wstawionych liczb*/
-			e=temp1;							/*temp1=e - bysmy nie utracili wartosci orginalu*/
-			for(d=0;a+b-temp1>=d;d++){					/*Przepisujemy nie przejrzane liczby z tabeli*/
-				przenoszenie[d]=tabela[e];		/*ktore wstawiamy do tymczasowej tabeli*/
-				e++;
+			printf("Kraze w petli\n");
+			if(temptab[temp]>=tabela[temp1]){
+				temp1++;
+				printf("temp1++\n");
 			}
-			e=temp1;
-			printf("temp=%i   temp1=%i\n",temp,temp1);
-			tabela[temp1]=temptab[temp];		/*Wstawiamy wartosc*/
-			for(d=0;a+b-temp1>=d;d++){					/*Dopisujemy reszte tabeli*/
-				tabela[e+1]=przenoszenie[d];	/*i otrzmyjemy tabele o 1 element wieksza*/
-				e++;
+			else if(temptab[temp]<tabela[temp1]){
+				printf("1\n");
+				c++;								/*Zwiekszamy ilosc wstawionych liczb*/
+				e=temp1;							/*temp1=e - bysmy nie utracili wartosci orginalu*/
+				for(d=0;a+b-temp1>=d;d++){					/*Przepisujemy nie przejrzane liczby z tabeli*/
+					przenoszenie[d]=tabela[e];		/*ktore wstawiamy do tymczasowej tabeli*/
+					e++;
+				}
+				e=temp1;
+				printf("temp=%i   temp1=%i\n",temp,temp1);
+				tabela[temp1]=temptab[temp];		/*Wstawiamy wartosc*/
+				for(d=0;a+b-temp1>=d;d++){					/*Dopisujemy reszte tabeli*/
+					tabela[e+1]=przenoszenie[d];	/*i otrzmyjemy tabele o 1 element wieksza*/
+					e++;
+				}
+				temp++;
+				if(temptab[temp-1]<temptab[temp]){						/*Dodane przyspieszenie*/
+					printf("Nastepny element - wiekszy\n");
+				}
+				else if(temptab[temp-1]>=temptab[temp]){
+					printf("Nastepny element - mniejszy/rowny\n");
+					temp1=0;
+				}
 			}
-			temp++;
-			temp1=0;
-		}
 	}
 	for(temp=0;a+b>temp;temp++){
 		printf("%i  ",tabela[temp]);
