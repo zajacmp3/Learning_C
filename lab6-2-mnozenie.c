@@ -126,8 +126,11 @@ printf("aaa kotki trzy\n");
 //Dzialanie mnozenia koniec
 //Drukowanie wyniku
 	printf("Wynik:\n");
-	for(temp1=0;temp1<10;temp1++){
-		printf("%i  ",wynik[temp1]);
+	if(wynik[a+a1+1]>0){
+		printf("%i",wynik[a+a1+1]);
+	}
+	for(temp1=a+a1;temp1>=0;temp1--){
+		printf("%i",wynik[temp1]);
 	}
 	printf("\n");
 }
