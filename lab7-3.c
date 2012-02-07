@@ -49,8 +49,7 @@ main(){
 		printf("|\n");
 	}
 //Rozpoczecie dzialania mnozenia
-	printf("error=%i b=%i c=%i\n",error,b,c);
-	/*if(error=0 && b==c){*/
+	if(error==0 && b==c){
 		while(f<d){
 		printf("WCHODZE\ne=%i    f=%i\n",e,f);
 			for(temp1=0;temp1<b;temp1++){
@@ -71,7 +70,6 @@ main(){
 			}
 			printf("|\n");
 		}
-		printf("%f",wynik[1][1]);
-/*	}
-	else{printf("Dzialanie niemozliwe\n");}*/
+	}
+	else{printf("Dzialanie niemozliwe\n");}
 }
