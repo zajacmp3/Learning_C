@@ -119,16 +119,17 @@ main(void) {
 	if(temp==2){
 		printf("-");
 	}
+	for(temp2=0;wynik[temp2]==0;temp2++);
 	complete=0;
 	while(complete==0){
 		if(a>a1 || temp==1){
-			for(temp1=0;temp1<=a;temp1++){
+			for(temp1=temp2;temp1<=a;temp1++){
 				printf("%i ",wynik[temp1]);
 			}
 			complete=1;
 		}
 		else if(a<a1 || temp==2){
-			for(temp1=0;temp1<=a1;temp1++){
+			for(temp1=temp2;temp1<=a1;temp1++){
 				printf("%i ",wynik[temp1]);
 			}
 		}
