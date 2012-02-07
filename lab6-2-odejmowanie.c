@@ -72,6 +72,7 @@ main(void) {
 				wynik[temp1]=tab1[temp1];
 			}
 			complete=1;
+			temp=2;
 		}
 		//Porownanie leksykograficzne jezeli ilosc podanych liczb jest taka sama
 		else if(a==a1){
@@ -87,38 +88,51 @@ main(void) {
 	}
 
 //DZIALANIE ODEJMOWANIA
-
-
-//BRAK
-
+	complete=0;
+	while(complete==0){
+		if(a>a1 || temp==1){
+			for(temp1=0;temp1<=a1;temp1++){
+				wynik[temp1]=wynik[temp1]-tab1[temp1];
+				if(wynik[temp1]<0){
+					wynik[temp1+1]=wynik[temp1+1]-1;
+					wynik[temp1]=wynik[temp1]+10;
+				}
+			}
+			complete=1;
+		}
+		else if(a<a1 || temp==2){
+			for(temp1=0;temp1<=a;temp1++){
+				wynik[temp1]=wynik[temp1]-tab[temp1];
+				if(wynik[temp1]<0){
+					wynik[temp1+1]=wynik[temp1+1]-1;
+					wynik[temp1]=wynik[temp1]+10;
+				}
+			}
+			complete=1;
+		}
+	}
 
 //Koniec dzialania odejmowania
 //Drukowanie wyniku
+
 	printf("wynik\n");
-	if(temp1=1){
+	if(temp==2){
 		printf("-");
 	}
-	if(a>a1){
-		if(wynik[a]>0){
-			printf("%i",wynik[a]);
+	complete=0;
+	while(complete==0){
+		if(a>a1 || temp==1){
+			for(temp1=0;temp1<=a;temp1++){
+				printf("%i ",wynik[temp1]);
+			}
+			complete=1;
 		}
-		temp=a;
-	}
-	else{
-		if(wynik[a1]>0){
-			printf("%i",wynik[a1]);
+		else if(a<a1 || temp==2){
+			for(temp1=0;temp1<=a1;temp1++){
+				printf("%i ",wynik[temp1]);
+			}
 		}
-		temp=a1;
+		complete=1;
 	}
-	for(;temp>=0;temp--){
-		if(wynik[temp]>0){
-			printf("%i",wynik[temp]);
-		}
-	}
-	printf("\n");
-	temp=0;
-	while(temp<10){
-	printf("%i",wynik[temp]);
-	temp++;
-	}
+//KONIEC!
 }
