@@ -91,7 +91,7 @@ main(void) {
 	complete=0;
 	while(complete==0){
 		if(a>a1 || temp==1){
-			for(temp1=0;temp1<=a1;temp1++){
+			for(temp1=0;temp1<=a;temp1++){
 				wynik[temp1]=wynik[temp1]-tab1[temp1];
 				if(wynik[temp1]<0){
 					wynik[temp1+1]=wynik[temp1+1]-1;
@@ -101,7 +101,7 @@ main(void) {
 			complete=1;
 		}
 		else if(a<a1 || temp==2){
-			for(temp1=0;temp1<=a;temp1++){
+			for(temp1=0;temp1<=a1;temp1++){
 				wynik[temp1]=wynik[temp1]-tab[temp1];
 				if(wynik[temp1]<0){
 					wynik[temp1+1]=wynik[temp1+1]-1;
@@ -115,7 +115,7 @@ main(void) {
 //Koniec dzialania odejmowania
 //Drukowanie wyniku
 
-	printf("wynik\n");
+	printf("\n\n\nwynik\n");
 	if(temp==2){
 		printf("-");
 	}
