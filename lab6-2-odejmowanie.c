@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 main(void) {
-	int a=0,a1=0,b=0,c=0,temp,temp1,temp2;
+	int a=0,a1=0,b=0,c=0,temp,temp1,temp2,complete=0;
 	int tab[1000]={0},tab1[1000]={0},wynik[1000]={0},temptab[1000];
 /*Podaje liczby jako znaki ASCII po czym rzutuje je i wartosci redukuje do normalnych liczb calkowitych*/
 	char znak,znak2;
@@ -54,46 +54,45 @@ main(void) {
 	printf("\n");
 //Koniec printu
 //DO USUNIECIA
-//Start dzialania odejmowania
-	if(a>a1){
-		for(temp=0;temp<a1;temp++){
-			wynik[temp]=wynik[temp]+tab[temp]-tab1[temp];
-			if(wynik[temp]<0){
-				tab[temp+1]=tab[temp+1]-1;
-				wynik[temp]=wynik[temp]+10;
+//Porownanie leksykograficzne tabel - ktora wieksza liczba oraz
+//Przepisanie wiekszej liczby do tabeli wynikowej
+	temp=0;
+	printf("aaa kotki dwa\n");
+	while(complete==0){
+		if(a>a1 || temp==1){
+			printf("Tabela pierwsza - wieksza/rowna\n\n");
+			for(temp1=0;temp1<=a;temp1++){
+				wynik[temp1]=tab[temp1];
 			}
+			complete=1;
 		}
-	}
-	else if(a<=a1){
-		if(a==a1 && tab1[a1]>tab[a1]){
-			for(temp=0;temp<a;temp++){
-				wynik[temp]=wynik[temp]+tab1[temp]-tab[temp];
-				if(wynik[temp]<0){
-					tab1[temp+1]=tab1[temp+1]-1;
-					wynik[temp]=wynik[temp]+10;
+		else if(a<a1 || temp==2){
+			printf("Tabela druga - wieksza\n\n");
+			for(temp1=0;temp1<=a1;temp1++){
+				wynik[temp1]=tab1[temp1];
+			}
+			complete=1;
+		}
+		//Porownanie leksykograficzne jezeli ilosc podanych liczb jest taka sama
+		else if(a==a1){
+			for(temp1=0;temp1<=a;temp1++){
+				if(tab[temp1]>=tab1[temp1]){
+					temp=1;
 				}
-			}
-		}
-		else if(a==a1 && tab1[a1]<=tab[a1]){
-			for(temp=0;temp<a;temp++){
-				wynik[temp]=wynik[temp]+tab1[temp]-tab[temp];
-				if(wynik[temp]<0){
-					tab1[temp+1]=tab1[temp+1]-1;
-					wynik[temp]=wynik[temp]+10;
-				}
-			}
-			temp1=1;
-		}
-		else{
-			for(temp=0;temp<a;temp++){
-				wynik[temp]=wynik[temp]+tab1[temp]-tab[temp];
-				if(wynik[temp]<0){
-					tab1[temp+1]=tab1[temp+1]-1;
-					wynik[temp]=wynik[temp]+10;
+				else if(tab[temp1]<tab1[temp1]){
+					temp=2;
 				}
 			}
 		}
 	}
+
+//DZIALANIE ODEJMOWANIA
+
+
+//BRAK
+
+
+//Koniec dzialania odejmowania
 //Drukowanie wyniku
 	printf("wynik\n");
 	if(temp1=1){
