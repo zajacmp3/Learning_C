@@ -23,25 +23,25 @@ main(void) {
 		temp2++;
 	}
 //Pierwsza tabela odwrocona
+//Podanie 2 liczby
 	printf("Podaj Liczbe 2");
 	znak=getchar();
-/*	printf("int=%i\n",(int)znak);*/
 	while((int)znak>=48 && (int)znak<=57){
-		tab1[a1]=(int)znak-48;
+		temptab[a1]=(int)znak-48;
 		znak=getchar();
 		a1++;
-	}						/*Koniec Podawania*/
-	a1--;
-
-	/*obracanie 2 tabeli*/
-	temp1=a1;
-	for(temp=0;temp<a1/2;temp++){
-		temp2=tab1[temp];
-		tab1[temp]=tab1[temp1];
-		tab1[temp1]=temp2;
-		temp1--;
 	}
-	/*i juz po*/
+	a1--;
+//Koniec podawania 2 liczby
+//Przepisywanie tabeli w odwrotnej kolejnosci do tab1
+	temp2=0;
+	for(temp1=a1;temp1>=0;temp1--){
+		tab1[temp2]=temptab[temp1];
+		temp2++;
+	}
+//Druga tabela odwrocona
+//DO USUNIECIA
+//Print tabel w naturalnej ich kolejnosci
 	printf("Tabela 1\n");
 	for(temp=0;temp<=a;temp++){
 		printf("%i ",tab[temp]);
@@ -52,7 +52,9 @@ main(void) {
 		printf("%i ",tab1[temp]);
 	}
 	printf("\n");
-	/*Odejmowanie*/
+//Koniec printu
+//DO USUNIECIA
+//Start dzialania odejmowania
 	if(a>a1){
 		for(temp=0;temp<a1;temp++){
 			wynik[temp]=wynik[temp]+tab[temp]-tab1[temp];
@@ -92,7 +94,7 @@ main(void) {
 			}
 		}
 	}
-	/*Drukujemy - od ty³u tabeli*/
+//Drukowanie wyniku
 	printf("wynik\n");
 	if(temp1=1){
 		printf("-");
