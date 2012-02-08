@@ -20,7 +20,7 @@ main(){
 	printf("Podaj tekst\n");
 	znak=getchar();
 	while(znak!=10){
-		if(znak!=10 && znak!=32){
+		if(znak!=10){
 			tabela[a]=znak;
 			a++;
 		}
@@ -34,7 +34,8 @@ main(){
 				juz_sprawdzane=1;
 			}
 		}
-		if(juz_sprawdzane==0){
+//(int)tabela[temp]!=32 && (int)tabela[temp+1]!=32 - Zapobiega drukowaniu sylab ze spacjami
+		if(juz_sprawdzane==0 && (int)tabela[temp]!=32 && (int)tabela[temp+1]!=32){
 			porownywarka[temp][0]=tabela[temp];
 			porownywarka[temp][1]=tabela[temp+1];
 			sort[temp]=temp;
@@ -47,8 +48,7 @@ main(){
 //Koniec badania
 //Sortowanie b¹belkowe wyników
 //Ÿród³o kodu: http://pl.wikisource.org/wiki/Sortowanie_b%C4%85belkowe/kod
-//Modyfikacja: Zmiana nazw tabeli na odpowiadaj¹ca jej tabele w programie
-//Modyfikacja: Zmiana zmiennej oraz dodanie rownoleglego analogicznego sortowania tabeli porownywarka wzgledem sortowanie
+//Rownolegle sortujemy inna tabele ktora wskazuje nam indeks sylaby z tabeli z sylabami
 	printf("Posortowane\n\n");
 	int i, j;
 	for (i = 0; i<temp; i++){
@@ -69,5 +69,4 @@ main(){
 			printf("%c%c - %i razy\n",porownywarka[sort[temp1]][0],porownywarka[sort[temp1]][1],sortowanie[temp1]);
 		}
 	}
-	printf("\n");
 }
