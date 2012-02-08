@@ -20,7 +20,7 @@ main(){
 	printf("Podaj tekst\n");
 	znak=getchar();
 	while(znak!=10){
-		if(znak!=10 && znak!=32){
+		if(znak!=10){
 			tabela[a]=znak;
 			a++;
 		}
@@ -34,7 +34,8 @@ main(){
 				juz_sprawdzane=1;
 			}
 		}
-		if(juz_sprawdzane==0){
+//(int)tabela[temp]!=32 && (int)tabela[temp+1]!=32 - Zapobiega drukowaniu sylab ze spacjami
+		if(juz_sprawdzane==0 && (int)tabela[temp]!=32 && (int)tabela[temp+1]!=32){
 			porownywarka[temp][0]=tabela[temp];
 			porownywarka[temp][1]=tabela[temp+1];
 			printf("%c%c - wystapilo %i razy\n",tabela[temp],tabela[temp+1],badania(a,temp,tabela));
